@@ -27,7 +27,9 @@ extension ControlCenter {
         
     }
     
-    func continueStraightOrRotate(robot: ComplexRobotObject, wallInfo:(up: Bool, right: Bool, down: Bool, left: Bool, numberOfWalls: Int)) {
+    
+
+    func continueStraightOrRotate(robot: ComplexRobotObject, myWallInfo: (up: Bool, right: Bool, down: Bool, left: Bool, numberOfWalls: Int)) {
         
         let randomNumber = arc4random() % 2
         
@@ -40,7 +42,7 @@ extension ControlCenter {
             
             // Step 3.2
             // TODO: Instead of calling randomlyRotateRightOrLeft() call turnTowardClearPath() when the robot has randomly chosen to rotate.
-           turnTowardClearPath(robot, wallInfo: <#T##(up: Bool, right: Bool, down: Bool, left: Bool, numberOfWalls: Int)#>)
+            turnTowardClearPath(robot, wallInfo: myWallInfo)
         
         }
         
@@ -51,11 +53,24 @@ extension ControlCenter {
         
         // Step 3.1
         // TODO: Tell the robot which way to turn toward the clear path. There are four cases where the robot should rotate to the right (the first two have been done for you--uncomment the code below). Write the remaining two cases where the robot should rotate to the right. For all other cases, the robot should rotate to the left.
-        //        if robot.direction == .Left && wallInfo.down {
-        //            robot.rotateRight()
-        //        } else if robot.direction == .Up && wallInfo.left {
-        //            robot.rotateRight()
-        //        }
+                if robot.direction == .Left && wallInfo.down {
+                    robot.rotateRight()
+                } else if robot.direction == .Up && wallInfo.left {
+                    robot.rotateRight()
+                } else if robot.direction == .Right && wallInfo.right{
+                    
+                    robot.rotateRight()
+                } else if robot.direction == .Down && wallInfo.down{
+                    robot.rotateRight()
+                    robot.rotateRight()
+
+        
+                } else {
+                    robot.rotateLeft()
+        
+                }
+        
+        
     }
 
 }

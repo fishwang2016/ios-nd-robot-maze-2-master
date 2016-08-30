@@ -18,6 +18,7 @@ class ControlCenter {
         let robotIsBlocked = isFacingWall(myRobot, direction: myRobot.direction)
         
         let myWallInfo = checkWalls(myRobot)
+        
         let isThreeWayJunction = (myWallInfo.numberOfWalls == 1)
         let isTwoWayPath = (myWallInfo.numberOfWalls == 2)
         let isDeadEnd = (myWallInfo.numberOfWalls == 3)
@@ -30,7 +31,7 @@ class ControlCenter {
                 randomlyRotateRightOrLeft(myRobot)
             
             } else {
-                continueStraightOrRotate(myRobot, wallInfo: myWallInfo)
+                continueStraightOrRotate(myRobot, myWallInfo: myWallInfo)
             
             }
         

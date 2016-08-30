@@ -17,7 +17,36 @@ extension ControlCenter {
         
         // You may want to paste your Part 1 implementation of isFacingWall() here
         
-        return false
+        switch direction {
+            
+        case .Up:
+            if cell.top{
+            
+             isWall = true
+            }
+            
+            
+        case .Right:
+            if cell.right{
+              isWall = true
+            }
+            
+        case .Left:
+            if cell.left{
+            
+             isWall = true
+            }
+        
+        case .Down:
+            if cell.bottom{
+             isWall = true
+            }
+    
+        
+        
+        }
+        
+        return isWall
     }
     
     func checkWalls(robot:ComplexRobotObject) -> (up: Bool, right: Bool, down: Bool, left: Bool, numberOfWalls: Int) {
@@ -37,6 +66,20 @@ extension ControlCenter {
         }
         
         // You may want to paste your Part 2 implementation of checkWalls() here
-        return (false, false, false, false, 0)
+        
+        let isWallDown = cell.bottom
+        if isWallDown  {
+            numberOfWalls += 1
+        }
+        
+        let isWallLeft = cell.left
+        if isWallLeft {
+            numberOfWalls += 1
+        }
+
+
+        
+        
+        return (isWallUp, isWallRight, isWallDown, isWallLeft, numberOfWalls)
     }
 }
