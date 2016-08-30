@@ -78,14 +78,12 @@ class ControlCenter {
             else if isTwoWayPath && !robotIsBlocked{
             
             myRobot.move()
-            print("blocked?")
-            print(robotIsBlocked)
         
         }
         
         // TODO: If the robot encounters a two way path and there IS a wall ahead, it should randomly rotate.
         
-        if isTwoWayPath && robotIsBlocked{
+       else if isTwoWayPath && robotIsBlocked{
             
             randomlyRotateRightOrLeft(myRobot)
         
@@ -98,7 +96,7 @@ class ControlCenter {
         
         // TODO: If the robot encounters a dead end and there is NO wall ahead it should move forward.
         
-        if isDeadEnd && !robotIsBlocked{
+        else if isDeadEnd && !robotIsBlocked{
             
            myRobot.move()
             
@@ -106,7 +104,7 @@ class ControlCenter {
         
         // TODO: If the robot encounters a dead end and there IS a wall ahead it should rotateRight().
         
-        if isDeadEnd && robotIsBlocked{
+        else if isDeadEnd && robotIsBlocked{
             
             myRobot.rotateRight()
         
