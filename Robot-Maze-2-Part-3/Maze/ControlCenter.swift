@@ -49,7 +49,7 @@ class ControlCenter {
             
             if robotIsBlocked{
                 
-                randomlyRotateRightOrLeft(myRobot)
+                turnTowardClearPath(myRobot, wallInfo: myWallInfo)
                 
             }else {
                 

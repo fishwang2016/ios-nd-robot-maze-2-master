@@ -62,8 +62,6 @@ extension ControlCenter {
                     robot.rotateRight()
                 } else if robot.direction == .Down && wallInfo.down{
                     robot.rotateRight()
-                    robot.rotateRight()
-
         
                 } else {
                     robot.rotateLeft()
